@@ -35,6 +35,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.BufferedWriter;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Hashtable;
@@ -186,7 +187,7 @@ public class JWSHandler extends BasicHandler
                 log.debug(Messages.getMessage("compiling00", jwsFile) );
                 log.debug(Messages.getMessage("copy00", jwsFile, jFile) );
                 FileReader fr = new FileReader( jwsFile );
-                FileWriter fw = new FileWriter( jFile );
+                BufferedWriter fw = new BufferedWriter(new FileWriter( jFile ));
                 char[] buf = new char[4096];
                 int    rc ;
                 while ( (rc = fr.read( buf, 0, 4095)) >= 0 )
